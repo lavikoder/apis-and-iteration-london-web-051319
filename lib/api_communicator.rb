@@ -5,17 +5,14 @@ require 'pry'
 def get_info(api_hash, char_name)
   api_hash["results"].each do |hash|
     hash.each do |key, val| #binding.pry
-      if val === char_name
+      if val == char_name
         return hash["films"]  #returning array of film urls
       end
     end
   end
 end
 
-
-
 def get_character_movies_from_api(character_name)
-  #make the web request
   response_string = RestClient.get('http://www.swapi.co/api/people/')
   response_hash = JSON.parse(response_string)
   films_arr = get_info(response_hash, character_name)
@@ -38,25 +35,20 @@ def print_movies(films)
     \nOpening Crawl: #{hash["opening_crawl"]}
     \nDirector: #{hash["title"]}
     \nRelease Date: #{hash["title"]}
-    \n-----------------------------
-    "
+    \n-----------------------------"
   end
 end
-
-# binding.pry
-# " "
 
 def show_character_movies(character)
   films = get_character_movies_from_api(character)
   print_movies(films)
 end
 
-# get_character_movies_from_api('Luke Skywalker')
+def show_starship_specs(starship)
+  # iterate through starship hash
+  # find info for starship and send back
+end
 
-
-
-#get_character_movies_from_api("Luke Skywalker")
-#print_movies(get_character_movies_from_api)
 ## BONUS
 
 # that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
