@@ -27,7 +27,6 @@ def get_character_movies_from_api(character_name)
 end
 
 def print_movies(films)
-  film_arr = []
   films.each do |hash|
     puts "
     \nTitle:  #{hash["title"]}
@@ -44,10 +43,40 @@ def show_character_movies(character)
   print_movies(films)
 end
 
-def show_starship_specs(starship)
-  # iterate through starship hash
-  # find info for starship and send back
+
+def get_startship_specs
+  response_string = RestClient.get('https://www.swapi.co/api/starships/')
+  JSON.parse(response_string)
 end
+
+
+def print_starship_specs(starship_hash, starship)
+  counter = 0
+  starship_hash["results"].each do |data|
+    if data["name"] == starship
+      data.each do |k, v|
+        puts "----------------------------------------------"
+        puts "#{k.capitalize}:  #{v}"
+        counter += 1
+        break if counter == 12
+        # binding.pry
+      end
+    end
+  end
+end
+
+def show_starship_specs(starship)
+  starship_specs = get_startship_specs
+  print_starship_specs(starship_specs, starship)
+end
+
+# def show_starship_specs(starship)
+#   # iterate through starship hash
+#
+#   # find info for starship and send back
+# end
+
+
 
 ## BONUS
 
