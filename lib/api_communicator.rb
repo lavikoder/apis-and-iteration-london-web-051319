@@ -5,12 +5,14 @@ require 'pry'
 def get_info(api_hash, char_name)
   api_hash["results"].each do |hash|
     hash.each do |key, val| #binding.pry
-      if val.downcase == char_name.downcase
+      if val === char_name
         return hash["films"]  #returning array of film urls
       end
     end
   end
 end
+
+
 
 def get_character_movies_from_api(character_name)
   #make the web request
@@ -24,16 +26,34 @@ def get_character_movies_from_api(character_name)
     film_hash = JSON.parse(film_info)
     new_films_arr << film_hash
   end
+  new_films_arr
 end
 
 def print_movies(films)
-
+  film_arr = []
+  films.each do |hash|
+    puts "
+    \nTitle:  #{hash["title"]}
+    \nEpisode:  #{hash["episode_id"]}
+    \nOpening Crawl: #{hash["opening_crawl"]}
+    \nDirector: #{hash["title"]}
+    \nRelease Date: #{hash["title"]}
+    \n-----------------------------
+    "
+  end
 end
+
+# binding.pry
+# " "
 
 def show_character_movies(character)
   films = get_character_movies_from_api(character)
   print_movies(films)
 end
+
+# get_character_movies_from_api('Luke Skywalker')
+
+
 
 #get_character_movies_from_api("Luke Skywalker")
 #print_movies(get_character_movies_from_api)

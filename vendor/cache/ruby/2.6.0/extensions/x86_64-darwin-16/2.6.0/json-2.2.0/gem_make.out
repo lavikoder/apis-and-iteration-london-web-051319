@@ -1,0 +1,13 @@
+current directory: /Users/kamanda/Desktop/Flatiron_work/Mod_1_13_05_19/Week_1/apis-and-iteration-london-web-051319/vendor/cache/ruby/2.6.0/gems/json-2.2.0/ext/json
+/Users/kamanda/.rvm/rubies/ruby-2.6.1/bin/ruby -I /Users/kamanda/.rvm/rubies/ruby-2.6.1/lib/ruby/site_ruby/2.6.0 -r ./siteconf20190514-33523-7hq5rh.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kamanda/Desktop/Flatiron_work/Mod_1_13_05_19/Week_1/apis-and-iteration-london-web-051319/vendor/cache/ruby/2.6.0/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/kamanda/Desktop/Flatiron_work/Mod_1_13_05_19/Week_1/apis-and-iteration-london-web-051319/vendor/cache/ruby/2.6.0/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/kamanda/Desktop/Flatiron_work/Mod_1_13_05_19/Week_1/apis-and-iteration-london-web-051319/vendor/cache/ruby/2.6.0/gems/json-2.2.0/ext/json
+make "DESTDIR=" install
